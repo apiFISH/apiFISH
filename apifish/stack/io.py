@@ -17,6 +17,7 @@ from skimage import io
 from .utils import check_array
 from .utils import check_parameter
 
+from astropy.table import Table
 
 # TODO add general read function with mime types
 # TODO saving data in csv does not preserve dtypes
@@ -193,6 +194,34 @@ def read_dataframe_from_csv(path, delimiter=";", encoding="utf-8"):
     df = pd.read_csv(path, sep=delimiter, encoding=encoding)
 
     return df
+
+
+def read_table_from_ecsv(path):
+    """Read an astropy Table saved as an ``ecsv`` file.
+
+    Parameters
+    ----------
+    path : str
+        Path of the ``csv`` file to read.
+    delimiter : str
+        Delimiter used to separate columns.
+    encoding : str
+        Encoding to use.
+
+    Returns
+    -------
+    df : pd.DataFrame
+        Pandas object read.
+
+    """
+    # check parameters
+    check_parameter(
+        path=str,)
+
+    # read ecsv file
+    table = Table.read(path, format="ascii.ecsv")
+
+    return table
 
 
 def read_uncompressed(path, verbose=False):
@@ -453,6 +482,36 @@ def save_data_to_csv(data, path, delimiter=";"):
             index=False,
             encoding="utf-8")
 
+
+def save_table_to_ecsv(data, path):
+    """Save an astropy table into an ``ecsv`` file.
+
+    The input should be an astropy Table object
+
+    Parameters
+    ----------
+    data : Table
+        Data to save.
+    path : str
+        Path of the saved ``ecsv`` file.
+
+    """
+    # check parameters
+    check_parameter(
+        data=(pd.DataFrame, pd.Series, np.ndarray),
+        path=str,
+        delimiter=str)
+
+
+    # add extension if necessary
+    if ".ecsv" not in path:
+        path += ".ecsv"
+
+    data.write(
+        path,
+        format="ascii.ecsv",
+        overwrite=True,
+    )
 
 def save_cell_extracted(cell_results, path):
     """Save cell-level results from :func:`bigfish.stack.extract_cell` in a
