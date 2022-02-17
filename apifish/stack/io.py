@@ -213,6 +213,7 @@ def read_table_from_ecsv(path):
     df : pd.DataFrame
         Pandas object read.
 
+
     """
     # check parameters
     check_parameter(
