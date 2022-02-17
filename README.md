@@ -1,6 +1,6 @@
 # api-FISH
 
-[![PyPI version](https://badge.fury.io/py/big-fish.svg)](https://badge.fury.io/py/big-fish)
+
 
 ## Installation
 
