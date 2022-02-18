@@ -499,9 +499,8 @@ def save_table_to_ecsv(data, path):
     """
     # check parameters
     check_parameter(
-        data=(pd.DataFrame, pd.Series, np.ndarray),
-        path=str,
-        delimiter=str)
+        data=(Table),
+        path=str,)
 
 
     # add extension if necessary
