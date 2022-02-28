@@ -16,3 +16,11 @@ apifish/stack/__pycache__/projection.cpython-37.pyc
 apifish/stack/__pycache__/quality.cpython-37.pyc
 
 apifish/stack/__pycache__/utils.cpython-37.pyc
+
+apifish/__pycache__/__init__.cpython-39.pyc
+
+apifish/stack/__pycache__/__init__.cpython-39.pyc
+
+apifish/stack/__pycache__/io.cpython-39.pyc
+
+apifish/stack/__pycache__/utils.cpython-39.pyc
