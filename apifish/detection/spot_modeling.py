@@ -8,7 +8,7 @@ Functions to model spots by fitting gaussian parameters.
 
 import numpy as np
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from .utils import _get_spot_volume
 from .utils import _get_spot_surface

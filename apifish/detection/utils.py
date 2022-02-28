@@ -3,14 +3,14 @@
 # License: BSD 3 clause
 
 """
-Utility functions for bigfish.detection subpackage.
+Utility functions for apifish.detection subpackage.
 """
 
 import warnings
 
 import numpy as np
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 
 # ### Pixel - nanometer conversion

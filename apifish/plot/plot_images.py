@@ -8,8 +8,8 @@ Functions to plot 2-d pixel and coordinates images.
 
 import warnings
 
-import bigfish.stack as stack
-import bigfish.multistack as multistack
+import apifish.stack as stack
+import apifish.multistack as multistack
 
 from .utils import save_plot, get_minmax_values, create_colormap
 

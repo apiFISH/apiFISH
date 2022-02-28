@@ -3,14 +3,14 @@
 # License: BSD 3 clause
 
 """
-Utility functions for bigfish.multistack subpackage.
+Utility functions for apifish.multistack subpackage.
 """
 
 import os
 import re
 import copy
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 
 # ### Recipe management (sanity checks, fitting) ###

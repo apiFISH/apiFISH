@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-The bigfish.deep_learning subpackage includes deep learning models and their
+The apifish.deep_learning subpackage includes deep learning models and their
 routines.
 """
 

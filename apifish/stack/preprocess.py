@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 """
-Functions used to format and clean any input loaded in bigfish.
+Functions used to format and clean any input loaded in apifish.
 """
 
 import warnings

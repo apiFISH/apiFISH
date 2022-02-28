@@ -8,7 +8,7 @@ Functions used to build 4D or 5D images.
 
 import numpy as np
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from .utils import check_recipe
 from .utils import check_datamap

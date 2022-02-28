@@ -33,7 +33,7 @@ def read_image(path, sanity_check=False):
     path : str
         Path of the image to read.
     sanity_check : bool
-        Check if the array returned fits with bigfish pipeline.
+        Check if the array returned fits with apifish pipeline.
 
     Returns
     -------
@@ -71,7 +71,7 @@ def read_dv(path, sanity_check=False):
     path : str
         Path of the file to read.
     sanity_check : bool
-        Check if the array returned fits with bigfish pipeline.
+        Check if the array returned fits with apifish pipeline.
 
     Returns
     -------

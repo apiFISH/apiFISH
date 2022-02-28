@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 """
-Utility functions for bigfish.plot subpackage.
+Utility functions for apifish.plot subpackage.
 """
 
 import matplotlib.pyplot as plt
