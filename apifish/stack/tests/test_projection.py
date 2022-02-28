@@ -1,17 +1,17 @@
-apifishapifish# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.stack.projection module.
+Unitary tests for apifish.stack.projection module.
 """
 
 import pytest
 
 import numpy as np
-import bigfish.stack as stack
+import apifish.stack as stack
 
-from bigfish.stack.projection import _one_hot_3d
+from apifish.stack.projection import _one_hot_3d
 
 from numpy.testing import assert_array_equal
 from numpy.testing import assert_array_almost_equal

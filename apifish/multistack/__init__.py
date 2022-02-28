@@ -1,9 +1,9 @@
-apifishapifish# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-The bigfish.multistack subpackage includes function to process input and output
+The apifish.multistack subpackage includes function to process input and output
 from different channels.
 """
 
@@ -36,7 +36,7 @@ from .postprocess import from_coord_to_frame
 from .postprocess import from_coord_to_surface
 
 
-# TODO complete bigfish.multistack.preprocess documentation
+# TODO complete apifish.multistack.preprocess documentation
 
 _utils = [
     "check_recipe",

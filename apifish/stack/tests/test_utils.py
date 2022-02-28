@@ -1,25 +1,25 @@
-apifishapifish# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.stack.utils module.
+Unitary tests for apifish.stack.utils module.
 """
 
 import pytest
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 import numpy as np
 import pandas as pd
 
 
-# TODO add test for bigfish.stack.load_and_save_url
-# TODO add test for bigfish.stack.check_hash
-# TODO add test for bigfish.stack.compute_hash
-# TODO add test for bigfish.stack.check_input_data
-# TODO add test for bigfish.stack.moving_average
-# TODO add test for bigfish.stack.centered_moving_average
+# TODO add test for apifish.stack.load_and_save_url
+# TODO add test for apifish.stack.check_hash
+# TODO add test for apifish.stack.compute_hash
+# TODO add test for apifish.stack.check_input_data
+# TODO add test for apifish.stack.moving_average
+# TODO add test for apifish.stack.centered_moving_average
 
 # ### Test sanity check functions ###
 

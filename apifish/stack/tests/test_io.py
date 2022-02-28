@@ -1,9 +1,9 @@
-apifishapifish# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.stack.io module.
+Unitary tests for apifish.stack.io module.
 """
 
 import os
@@ -13,12 +13,12 @@ import tempfile
 
 import numpy as np
 import pandas as pd
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from numpy.testing import assert_array_equal
 
-# TODO test bigfish.stack.read_cell_extracted
-# TODO test bigfish.stack.save_cell_extracted
+# TODO test apifish.stack.read_cell_extracted
+# TODO test apifish.stack.save_cell_extracted
 
 
 @pytest.mark.parametrize("shape", [

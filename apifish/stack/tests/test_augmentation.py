@@ -1,24 +1,24 @@
-apifishapifish# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.stack.augmentation module.
+Unitary tests for apifish.stack.augmentation module.
 """
 
 import pytest
 
 import numpy as np
-import bigfish.stack as stack
+import apifish.stack as stack
 
-from bigfish.stack.augmentation import _identity
-from bigfish.stack.augmentation import _flip_h
-from bigfish.stack.augmentation import _flip_v
-from bigfish.stack.augmentation import _transpose
-from bigfish.stack.augmentation import _transpose_inverse
-from bigfish.stack.augmentation import _rotation_90
-from bigfish.stack.augmentation import _rotation_180
-from bigfish.stack.augmentation import _rotation_270
+from apifish.stack.augmentation import _identity
+from apifish.stack.augmentation import _flip_h
+from apifish.stack.augmentation import _flip_v
+from apifish.stack.augmentation import _transpose
+from apifish.stack.augmentation import _transpose_inverse
+from apifish.stack.augmentation import _rotation_90
+from apifish.stack.augmentation import _rotation_180
+from apifish.stack.augmentation import _rotation_270
 
 from numpy.testing import assert_array_equal
 

@@ -1,15 +1,15 @@
-apifishapifish# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.stack.quality module.
+Unitary tests for apifish.stack.quality module.
 """
 
 import pytest
 
 import numpy as np
-import bigfish.stack as stack
+import apifish.stack as stack
 
 
 x_out_focus = np.array(

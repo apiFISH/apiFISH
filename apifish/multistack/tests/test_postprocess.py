@@ -1,24 +1,24 @@
-apifishapifish# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.multistack.postprocess module.
+Unitary tests for apifish.multistack.postprocess module.
 """
 
 import pytest
 
 import numpy as np
 
-import bigfish.multistack as multistack
+import apifish.multistack as multistack
 
 from numpy.testing import assert_array_equal
 
 
-# TODO add test bigfish.multistack.match_nuc_cell
-# TODO add test bigfish.multistack.extract_cell
-# TODO add test bigfish.multistack.extract_spots_from_frame
-# TODO add test bigfish.multistack.summarize_extraction_results
+# TODO add test apifish.multistack.match_nuc_cell
+# TODO add test apifish.multistack.extract_cell
+# TODO add test apifish.multistack.extract_spots_from_frame
+# TODO add test apifish.multistack.summarize_extraction_results
 
 @pytest.mark.parametrize("ndim", [2, 3])
 @pytest.mark.parametrize("mask_dtype", [

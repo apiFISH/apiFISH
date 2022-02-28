@@ -1,9 +1,9 @@
-apifishapifish# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-The bigfish.segmentation subpackage includes functions to segment or label
+The apifish.segmentation subpackage includes functions to segment or label
 nuclei and cells.
 """
 
