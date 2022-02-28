@@ -1,9 +1,9 @@
-apifish# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-The bigfish package.
+The apifish package.
 """
 
 
