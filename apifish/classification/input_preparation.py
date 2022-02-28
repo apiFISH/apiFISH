@@ -9,7 +9,7 @@ Functions to prepare input data.
 import numpy as np
 from scipy import ndimage as ndi
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from skimage.measure import regionprops
 

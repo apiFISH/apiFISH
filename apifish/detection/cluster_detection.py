@@ -9,7 +9,7 @@ structures.
 
 import numpy as np
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from .utils import convert_spot_coordinates
 

@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.multistack.preprocess module.
+Unitary tests for apifish.multistack.preprocess module.
 """
 
 import os
@@ -12,8 +12,8 @@ import tempfile
 
 import numpy as np
 
-import bigfish.stack as stack
-import bigfish.multistack as multistack
+import apifish.stack as stack
+import apifish.multistack as multistack
 
 from numpy.testing import assert_array_equal
 

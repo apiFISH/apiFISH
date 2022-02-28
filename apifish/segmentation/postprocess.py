@@ -3,10 +3,10 @@
 # License: BSD 3 clause
 
 """
-Postprocessing functions functions for bigfish.segmentation subpackage.
+Postprocessing functions functions for apifish.segmentation subpackage.
 """
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 import numpy as np
 from scipy import ndimage as ndi

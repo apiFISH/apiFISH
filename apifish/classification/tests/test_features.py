@@ -3,16 +3,16 @@
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.classification.features module.
+Unitary tests for apifish.classification.features module.
 """
 
-# TODO add test bigfish.classification.compute_features
-# TODO add test bigfish.classification.get_features_name
-# TODO add test bigfish.classification.features_distance
-# TODO add test bigfish.classification.features_in_out_nucleus
-# TODO add test bigfish.classification.features_protrusion
-# TODO add test bigfish.classification.features_dispersion
-# TODO add test bigfish.classification.features_topography
-# TODO add test bigfish.classification.features_foci
-# TODO add test bigfish.classification.features_area
-# TODO add test bigfish.classification.features_centrosome
+# TODO add test apifish.classification.compute_features
+# TODO add test apifish.classification.get_features_name
+# TODO add test apifish.classification.features_distance
+# TODO add test apifish.classification.features_in_out_nucleus
+# TODO add test apifish.classification.features_protrusion
+# TODO add test apifish.classification.features_dispersion
+# TODO add test apifish.classification.features_topography
+# TODO add test apifish.classification.features_foci
+# TODO add test apifish.classification.features_area
+# TODO add test apifish.classification.features_centrosome

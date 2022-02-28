@@ -33,7 +33,7 @@ def read_image(path, sanity_check=False):
     path : str
         Path of the image to read.
     sanity_check : bool
-        Check if the array returned fits with bigfish pipeline.
+        Check if the array returned fits with apifish pipeline.
 
     Returns
     -------
@@ -71,7 +71,7 @@ def read_dv(path, sanity_check=False):
     path : str
         Path of the file to read.
     sanity_check : bool
-        Check if the array returned fits with bigfish pipeline.
+        Check if the array returned fits with apifish pipeline.
 
     Returns
     -------
@@ -256,7 +256,7 @@ def read_uncompressed(path, verbose=False):
 
 def read_cell_extracted(path, verbose=False):
     """Read a NpzFile object with ``npz`` extension, previously written with
-    :func:`bigfish.stack.save_cell_extracted`.
+    :func:`apifish.stack.save_cell_extracted`.
 
     Parameters
     ----------
@@ -317,7 +317,7 @@ def save_image(image, path, extension="tif"):
     * A 2-d boolean image can be saved in ``png``, ``jpg`` or ``jpeg`` (cast in
       np.uint8).
     * A multidimensional boolean image should be saved with
-      :func:`bigfish.stack.save_array` or as a boolean images with ``tif``/
+      :func:`apifish.stack.save_array` or as a boolean images with ``tif``/
       ``tiff`` extension.
 
     """
@@ -370,7 +370,7 @@ def save_image(image, path, extension="tif"):
             and image.dtype == bool):
         warnings.warn("Extension {0} is not consistent with dtype. To prevent "
                       "'image' from being cast you should use "
-                      "'bigfish.stack.save_array' function instead."
+                      "'apifish.stack.save_array' function instead."
                       .format(extension), UserWarning)
     if (extension in ["tif", "tiff"] and len(image.shape) == 2
             and image.dtype == bool):
@@ -380,7 +380,7 @@ def save_image(image, path, extension="tif"):
     if (extension in ["png", "jpg", "jpeg", "tif", "tiff"]
             and len(image.shape) > 2 and image.dtype == bool):
         raise ValueError("Extension {0} is not fitted with multidimensional "
-                         "boolean images. Use 'bigfish.stack.save_array' "
+                         "boolean images. Use 'apifish.stack.save_array' "
                          "function instead.".format(extension))
 
     # save image without warnings
@@ -514,7 +514,7 @@ def save_table_to_ecsv(data, path):
     )
 
 def save_cell_extracted(cell_results, path):
-    """Save cell-level results from :func:`bigfish.stack.extract_cell` in a
+    """Save cell-level results from :func:`apifish.stack.extract_cell` in a
     NpzFile object with ``npz`` extension.
 
     Parameters

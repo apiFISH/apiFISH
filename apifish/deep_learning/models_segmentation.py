@@ -13,7 +13,7 @@ from zipfile import ZipFile
 
 import tensorflow as tf
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from .utils_models import EncoderDecoder
 from .utils_models import SameConv

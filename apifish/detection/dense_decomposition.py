@@ -11,7 +11,7 @@ import warnings
 
 import numpy as np
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from .utils import build_reference_spot
 from .utils import get_object_radius_pixel

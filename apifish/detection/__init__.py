@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 """
-The bigfish.detection subpackage includes function to detect RNA spot in 2-d
+The apifish.detection subpackage includes function to detect RNA spot in 2-d
 and 3-d.
 """
 

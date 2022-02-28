@@ -1,16 +1,16 @@
-# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.stack.utils module.
+Unitary tests for apifish.stack.utils module.
 """
 
 import os
 import pytest
 import tempfile
 
-import bigfish.multistack as multistack
+import apifish.multistack as multistack
 
 
 # ### Test recipes ###

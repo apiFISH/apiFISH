@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 """
-The bigfish.classification subpackage includes functions to prepare input data,
+The apifish.classification subpackage includes functions to prepare input data,
 craft features and train classification models.
 """
 

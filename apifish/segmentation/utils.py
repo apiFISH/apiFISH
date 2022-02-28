@@ -1,12 +1,12 @@
-# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Utility functions for bigfish.segmentation subpackage.
+Utility functions for apifish.segmentation subpackage.
 """
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 import numpy as np
 
