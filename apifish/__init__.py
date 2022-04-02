@@ -3,7 +3,7 @@
 # License: BSD 3 clause
 
 """
-The bigfish package.
+The apifish package.
 """
 
 

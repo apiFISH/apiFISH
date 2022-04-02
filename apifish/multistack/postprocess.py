@@ -4,7 +4,7 @@
 
 """
 Functions used to format, merge and clean intermediate results from different
-channels processed with bigfish.
+channels processed with apifish.
 """
 
 import warnings
@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 from scipy import ndimage as ndi
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from skimage.measure import regionprops
 from skimage.measure import find_contours

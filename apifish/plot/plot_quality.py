@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
@@ -6,9 +6,9 @@
 Function to plot quality control indicators.
 """
 
-import bigfish.stack as stack
-import bigfish.detection as detection
-import bigfish.multistack as multistack
+import apifish.stack as stack
+import apifish.detection as detection
+import apifish.multistack as multistack
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -24,7 +24,7 @@ def plot_sharpness(focus_measures, labels=None, title=None, framesize=(5, 5),
     """Plot focus measures of a 3-d image, at the z-slice level.
 
     A measure of focus for each z-slice can be computed by averaging the
-    pixel-wise focus measure returned from :func:`bigfish.stack.compute_focus`.
+    pixel-wise focus measure returned from :func:`apifish.stack.compute_focus`.
 
     Parameters
     ----------

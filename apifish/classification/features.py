@@ -13,7 +13,7 @@ from scipy import ndimage as ndi
 from skimage.morphology import binary_opening
 from skimage.morphology.selem import disk
 
-import bigfish.stack as stack
+import apifish.stack as stack
 from .input_preparation import prepare_extracted_data
 
 

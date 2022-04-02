@@ -1,15 +1,15 @@
-# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.detection.spot_modeling module.
+Unitary tests for apifish.detection.spot_modeling module.
 """
 
 
-# TODO test bigfish.detection.modelize_spot
-# TODO test bigfish.detection.initialize_grid
-# TODO test bigfish.detection.gaussian_2d
-# TODO test bigfish.detection.gaussian_3d
-# TODO test bigfish.detection.precompute_erf
-# TODO test bigfish.detection.fit_subpixel
+# TODO test apifish.detection.modelize_spot
+# TODO test apifish.detection.initialize_grid
+# TODO test apifish.detection.gaussian_2d
+# TODO test apifish.detection.gaussian_3d
+# TODO test apifish.detection.precompute_erf
+# TODO test apifish.detection.fit_subpixel

@@ -8,7 +8,7 @@ Class and functions to segment nucleus.
 
 import numpy as np
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from .postprocess import label_instances
 from .postprocess import clean_segmentation
@@ -30,7 +30,7 @@ def unet_3_classes_nuc():
 
     """
     # import  deep_learning subpackage
-    import bigfish.deep_learning as dl
+    import apifish.deep_learning as dl
 
     # load model
     model = dl.load_pretrained_model("nuc", "3_classes")

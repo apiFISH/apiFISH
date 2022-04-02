@@ -8,8 +8,8 @@ Functions to detect colocalized spots in 2-d and 3-d.
 
 import numpy as np
 
-import bigfish.stack as stack
-import bigfish.detection as detection
+import apifish.stack as stack
+import apifish.detection as detection
 
 from scipy.spatial.distance import cdist
 from scipy.optimize import linear_sum_assignment

@@ -6,7 +6,7 @@
 Class and functions to segment cells.
 """
 
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from .utils import thresholding
 from .postprocess import label_instances
@@ -36,7 +36,7 @@ def unet_distance_edge_double():
 
     """
     # import  deep_learning subpackage
-    import bigfish.deep_learning as dl
+    import apifish.deep_learning as dl
 
     # load model
     model = dl.load_pretrained_model("double", "distance_edge")

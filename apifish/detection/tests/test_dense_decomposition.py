@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.detection.dense_decomposition module.
+Unitary tests for apifish.detection.dense_decomposition module.
 """
 
-# TODO test bigfish.detection.decompose_dense
-# TODO test bigfish.detection.get_dense_region
-# TODO test bigfish.detection.simulate_gaussian_mixture
+# TODO test apifish.detection.decompose_dense
+# TODO test apifish.detection.get_dense_region
+# TODO test apifish.detection.simulate_gaussian_mixture

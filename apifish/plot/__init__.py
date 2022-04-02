@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
+apifishapifishapifish# -*- coding: utf-8 -*-
 # Author: Arthur Imbert <arthur.imbert.pro@gmail.com>
 # License: BSD 3 clause
 
 """
-The bigfish.plot subpackage includes functions to plot images and results.
+The apifish.plot subpackage includes functions to plot images and results.
 """
 
 from .plot_images import plot_yx
