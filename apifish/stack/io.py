@@ -502,11 +502,6 @@ def save_table_to_ecsv(data, path):
         data=(Table),
         path=str,)
 
-
-    # add extension if necessary
-    if ".ecsv" not in path:
-        path += ".ecsv"
-
     data.write(
         path,
         format="ascii.ecsv",
