@@ -517,3 +517,31 @@ def get_marge_padding(height, width, x):
                      [marge_sup_width_l, marge_sup_width_r]]
 
     return marge_padding
+
+def unmix_channels(image, number_channels = 2):
+    """Unmixes interlaced image stack 
+
+    Parameters
+    ----------
+    image : np.ndarray
+        Image to resize.
+    number_channels : int
+        number of interlaced channels
+
+    Returns
+    -------
+    unmixed_images : list of np.ndarray
+        Unmixed images.
+    """
+
+    
+    im_size = image.shape
+    number_z_planes = int(im_size[0]/number_channels)
+
+    output_images= [np.zeros((number_z_planes,im_size[1],im_size[2])) for x in range(number_channels)]
+
+    for i in range(number_channels):
+        for j in range(number_z_planes):
+            output_images[i][j,:,:] = image[2*j+i,:,:]
+
+    return output_images
