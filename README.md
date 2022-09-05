@@ -16,8 +16,9 @@ apiFISH requires Python XXX or newer. Additionally, it has the following depende
 - pandas (>= 0.24.0)
 - mrc (>= 0.1.5)
 
-- tensorflow (== 2.3.0)
-- tensorflow-addons (== 0.12.1)
+For segmentation purpose, two additional dependencies can be requested:
+- tensorflow (>= 2.3.0)
+- tensorflow-addons (>= 0.12.1)
 
 ### Virtual environment
 
