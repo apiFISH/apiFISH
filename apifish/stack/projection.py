@@ -457,7 +457,7 @@ def find_focal_plane(data, threshold_fwhm=20):
     laplacian_variance = [cv2.Laplacian(img, cv2.CV_64F).var() for img in raw_images]
     laplacian_variance = laplacian_variance / max(laplacian_variance)
     x_coord = range(len(laplacian_variance))
-    fit_result, _ = fit_1d_gaussian_scipy(
+    fit_result = fit_1d_gaussian_scipy(
         x_coord,
         laplacian_variance,
         title="laplacian variance z-profile",
