@@ -128,7 +128,6 @@ def sum_projection(image):
 
     # project image along the z axis
     projected_image = np.sum(image, axis=0)
-    projected_image = projected_image.astype(image.dtype)
 
     return projected_image
 
