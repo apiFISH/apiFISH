@@ -127,7 +127,9 @@ def sum_projection(image):
                np.float32, np.float64])
 
     # project image along the z axis
-    projected_image = np.sum(image, axis=0)
+    projected_image = np.zeros((image.shape[1], image.shape[2]))
+    for z_plan in image:
+	    projected_image += z_plan
 
     return projected_image
 
