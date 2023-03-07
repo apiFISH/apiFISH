@@ -543,6 +543,9 @@ def reassemble_images(focal_plane_matrix, block, window=0):
         output 2D projection
 
     """
+    
+    # Fix ValueError: cannot convert float NaN to integer
+    focal_plane_matrix = np.nan_to_num(focal_plane_matrix)
     # gets image size from block image
     number_blocks = block.shape[0]
     block_size_xy = block.shape[3]
