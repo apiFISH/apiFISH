@@ -27,13 +27,13 @@ _input_preparation = [
 _features = [
     "compute_features",
     "get_features_name",
-    "features_distance"
-    "features_in_out_nucleus"
-    "features_protrusion"
-    "features_dispersion"
-    "features_topography"
-    "features_foci"
-    "features_area"
+    "features_distance",
+    "features_in_out_nucleus",
+    "features_protrusion",
+    "features_dispersion",
+    "features_topography",
+    "features_foci",
+    "features_area",
     "features_centrosome"]
 
 __all__ = _input_preparation + _features
