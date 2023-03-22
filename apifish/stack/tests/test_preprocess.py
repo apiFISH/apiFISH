@@ -3,13 +3,13 @@
 # License: BSD 3 clause
 
 """
-Unitary tests for bigfish.stack.preprocess module.
+Unitary tests for apifish.stack.preprocess module.
 """
 
 import pytest
 
 import numpy as np
-import bigfish.stack as stack
+import apifish.stack as stack
 
 from numpy.testing import assert_array_equal
 from numpy.testing import assert_array_almost_equal

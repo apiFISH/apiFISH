@@ -14,7 +14,7 @@ DESCRIPTION = "Toolbox for the analysis of smFISH images."
 
 # package version
 VERSION = None
-with open('bigfish/__init__.py', encoding='utf-8') as f:
+with open('apifish/__init__.py', encoding='utf-8') as f:
     for row in f:
         if row.startswith('__version__'):
             VERSION = row.strip().split()[-1][1:-1]
