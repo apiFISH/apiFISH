@@ -6,5 +6,4 @@ matplotlib >= 3.0.2
 pandas >= 0.24.2
 mrc >= 0.1.5
 astropy >= 5.2.1
-opencv-python >= 4.5.3.56
 tqdm >= 4.63.0
