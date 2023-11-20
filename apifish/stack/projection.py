@@ -4,17 +4,16 @@
 
 import cv2
 import numpy as np
+import scipy.optimize as spo
 from scipy.stats import sigmaclip
 from skimage.util.shape import view_as_blocks
 from tqdm import trange
-import scipy.optimize as spo
 
-from .utils import check_array
-from .utils import check_parameter
 from .quality import compute_focus
-
+from .utils import check_array, check_parameter
 
 # ### Projections 2-d ###
+
 
 def maximum_projection(image):
     """Project the z-dimension of an image, keeping the maximum intensity of
@@ -35,8 +34,8 @@ def maximum_projection(image):
     check_array(
         image,
         ndim=3,
-        dtype=[np.uint8, np.uint16, np.int32, np.int64,
-               np.float32, np.float64])
+        dtype=[np.uint8, np.uint16, np.int32, np.int64, np.float32, np.float64],
+    )
 
     # project image along the z axis
     projected_image = image.max(axis=0)
@@ -65,8 +64,8 @@ def mean_projection(image, return_float=False):
     check_array(
         image,
         ndim=3,
-        dtype=[np.uint8, np.uint16, np.int32, np.int64,
-               np.float32, np.float64])
+        dtype=[np.uint8, np.uint16, np.int32, np.int64, np.float32, np.float64],
+    )
 
     # project image along the z axis
     if return_float:
@@ -96,14 +95,15 @@ def median_projection(image):
     check_array(
         image,
         ndim=3,
-        dtype=[np.uint8, np.uint16, np.int32, np.int64,
-               np.float32, np.float64])
+        dtype=[np.uint8, np.uint16, np.int32, np.int64, np.float32, np.float64],
+    )
 
     # project image along the z axis
     projected_image = np.median(image, axis=0)
     projected_image = projected_image.astype(image.dtype)
 
     return projected_image
+
 
 def sum_projection(image):
     """Project the z-dimension of a image, computing the sum of each yx pixel.
@@ -123,22 +123,18 @@ def sum_projection(image):
     check_array(
         image,
         ndim=3,
-        dtype=[np.uint8, np.uint16, np.int32, np.int64,
-               np.float32, np.float64])
+        dtype=[np.uint8, np.uint16, np.int32, np.int64, np.float32, np.float64],
+    )
 
     # project image along the z axis
     projected_image = np.zeros((image.shape[1], image.shape[2]))
     for z_plan in image:
-	    projected_image += z_plan
+        projected_image += z_plan
 
     return projected_image
 
 
-def focus_projection(
-        image,
-        proportion=0.75,
-        neighborhood_size=7,
-        method="median"):
+def focus_projection(image, proportion=0.75, neighborhood_size=7, method="median"):
     """Project the z-dimension of an image.
 
     Inspired from Samacoits Aubin's thesis (part 5.3, strategy 5). Compare to
@@ -174,8 +170,8 @@ def focus_projection(
     check_array(
         image,
         ndim=3,
-        dtype=[np.uint8, np.uint16, np.int32, np.int64,
-               np.float32, np.float64])
+        dtype=[np.uint8, np.uint16, np.int32, np.int64, np.float32, np.float64],
+    )
 
     # compute focus measure for each pixel
     focus = compute_focus(image, neighborhood_size)
@@ -192,9 +188,13 @@ def focus_projection(
 
     # build a binary matrix with the same shape of our in-focus image to keep
     # the top focus pixels only
-    mask = [mask_ for mask_ in map(
-        lambda indices: _one_hot_3d(indices, depth=in_focus_image.shape[0]),
-        top_focus_indices)]
+    mask = [
+        mask_
+        for mask_ in map(
+            lambda indices: _one_hot_3d(indices, depth=in_focus_image.shape[0]),
+            top_focus_indices,
+        )
+    ]
     mask = np.sum(mask, axis=0, dtype=in_focus_image.dtype)
 
     # filter top focus pixels in our in-focus image
@@ -207,8 +207,10 @@ def focus_projection(
     elif method == "max":
         projected_image = np.nanmax(in_focus_image, axis=0)
     else:
-        raise ValueError("Parameter 'method' should be 'median' or 'max', not "
-                         "'{0}'.".format(method))
+        raise ValueError(
+            "Parameter 'method' should be 'median' or 'max', not "
+            "'{0}'.".format(method)
+        )
     projected_image = projected_image.astype(image.dtype)
 
     return projected_image
@@ -237,8 +239,17 @@ def _one_hot_3d(indices, depth, return_boolean=False):
     check_array(
         indices,
         ndim=2,
-        dtype=[np.uint8, np.uint16, np.uint32, np.uint64,
-               np.int8, np.int16, np.int32, np.int64])
+        dtype=[
+            np.uint8,
+            np.uint16,
+            np.uint32,
+            np.uint64,
+            np.int8,
+            np.int16,
+            np.int32,
+            np.int64,
+        ],
+    )
 
     # initialize the 3-d one-hot matrix
     one_hot = np.zeros((indices.size, depth), dtype=indices.dtype)
@@ -257,6 +268,7 @@ def _one_hot_3d(indices, depth, return_boolean=False):
 
 
 # ### Slice selection ###
+
 
 def in_focus_selection(image, focus, proportion):
     """Select and keep the 2-d slices with the highest level of focus.
@@ -285,8 +297,8 @@ def in_focus_selection(image, focus, proportion):
     check_array(
         image,
         ndim=3,
-        dtype=[np.uint8, np.uint16, np.int32, np.int64,
-               np.float32, np.float64])
+        dtype=[np.uint8, np.uint16, np.int32, np.int64, np.float32, np.float64],
+    )
 
     # select and keep best z-slices
     indices_to_keep = get_in_focus_indices(focus, proportion)
@@ -296,7 +308,7 @@ def in_focus_selection(image, focus, proportion):
 
 
 def get_in_focus_indices(focus, proportion):
-    """ Select the best in-focus z-slices.
+    """Select the best in-focus z-slices.
 
     Helmli and Scherer’s mean method is used as a focus metric.
 
@@ -323,8 +335,10 @@ def get_in_focus_indices(focus, proportion):
     elif isinstance(proportion, int) and 0 <= proportion:
         n = int(proportion)
     else:
-        raise ValueError("'proportion' should be a float between 0 and 1 or a "
-                         "positive integer, but not {0}.".format(proportion))
+        raise ValueError(
+            "'proportion' should be a float between 0 and 1 or a "
+            "positive integer, but not {0}.".format(proportion)
+        )
 
     # measure focus level per 2-d slices
     focus_levels = np.mean(focus, axis=(1, 2))
@@ -340,6 +354,7 @@ def get_in_focus_indices(focus, proportion):
 # =============================================================================
 # FOCAL PLANE INTERPOLATION
 # =============================================================================
+
 
 def reinterpolate_focal_plane(data, block_size_xy=256, window=10):
     """
@@ -475,6 +490,7 @@ def find_focal_plane(data, threshold_fwhm=20):
 
     return focal_plane, fwhm
 
+
 # Gaussian function
 # @jit(nopython=True)
 def gaussian(x, a=1, mean=0, std=0.5):
@@ -483,6 +499,7 @@ def gaussian(x, a=1, mean=0, std=0.5):
         * (1 / (std * (np.sqrt(2 * np.pi))))
         * (np.exp(-((x - mean) ** 2) / ((2 * std) ** 2)))
     )
+
 
 def fit_1d_gaussian_scipy(x, y, title=""):
     """
@@ -543,7 +560,7 @@ def reassemble_images(focal_plane_matrix, block, window=0):
         output 2D projection
 
     """
-    
+
     # Fix ValueError: cannot convert float NaN to integer
     focal_plane_matrix = np.nan_to_num(focal_plane_matrix)
     # gets image size from block image
@@ -588,7 +605,7 @@ def reassemble_images(focal_plane_matrix, block, window=0):
                 zmax = np.min((block[i, j].shape[0], focus + round(window / 2)))
                 block_img = block[i, j][:, :, :]
                 output[
-                    i_slice[0]:i_slice[-1]+1, j_slice[0]:j_slice[-1]+1
+                    i_slice[0] : i_slice[-1] + 1, j_slice[0] : j_slice[-1] + 1
                 ] = maximum_projection(block_img[zmin:zmax])
 
     return output
