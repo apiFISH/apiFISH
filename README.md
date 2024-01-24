@@ -1,4 +1,4 @@
-# api-FISH
+# apiFISH (based on Big-FISH)
 
 
 
