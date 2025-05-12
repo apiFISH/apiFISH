@@ -8,6 +8,7 @@ Class and functions to segment nucleus.
 
 import numpy as np
 
+from apifish.image import augmentation
 import apifish.stack as stack
 
 from .postprocess import label_instances
@@ -102,7 +103,7 @@ def apply_unet_3_classes(model, image, target_size=None, test_time_augmentation=
 
     # augment images
     if test_time_augmentation:
-        image_to_process = stack.augment_8_times(image_to_process)
+        image_to_process = augmentation.augment_8_times(image_to_process)
         n_augmentations = 8
     else:
         image_to_process = [image_to_process]
@@ -138,7 +139,7 @@ def apply_unet_3_classes(model, image, target_size=None, test_time_augmentation=
 
     # reversed image augmentation
     if test_time_augmentation:
-        predictions = stack.augment_8_times_reversed(predictions_augmented)
+        predictions = augmentation.augment_8_times_reversed(predictions_augmented)
         mean_prediction = np.mean(predictions, axis=0)
     else:
         mean_prediction = predictions_augmented[0]

@@ -6,6 +6,7 @@
 Class and functions to segment cells.
 """
 
+from apifish.image import augmentation
 import apifish.stack as stack
 
 from .utils import thresholding
@@ -124,8 +125,8 @@ def apply_unet_distance_double(
 
     # augment images
     if test_time_augmentation:
-        nuc_to_process = stack.augment_8_times(nuc_to_process)
-        cell_to_process = stack.augment_8_times(cell_to_process)
+        nuc_to_process = augmentation.augment_8_times(nuc_to_process)
+        cell_to_process = augmentation.augment_8_times(cell_to_process)
         n_augmentations = 8
     else:
         nuc_to_process = [nuc_to_process]
@@ -178,8 +179,10 @@ def apply_unet_distance_double(
 
     # reversed image augmentation
     if test_time_augmentation:
-        predictions_cell = stack.augment_8_times_reversed(predictions_cell)
-        predictions_distance = stack.augment_8_times_reversed(predictions_distance)
+        predictions_cell = augmentation.augment_8_times_reversed(predictions_cell)
+        predictions_distance = augmentation.augment_8_times_reversed(
+            predictions_distance
+        )
         mean_prediction_cell = np.mean(predictions_cell, axis=0)
         mean_prediction_distance = np.mean(predictions_distance, axis=0)
     else:
