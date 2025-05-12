@@ -9,8 +9,6 @@ Subpackages
 
    apifish.build_matrix
    apifish.build_traces
-   apifish.classification
-   apifish.deep_learning
    apifish.detection
    apifish.multistack
    apifish.plot

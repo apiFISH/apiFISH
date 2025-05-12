@@ -34,14 +34,6 @@
 ------------
 
 .. toctree::
-   :caption: Analysis
-
-   apidoc/classification/extraction
-   apidoc/classification/features
-
-------------
-
-.. toctree::
    :caption: Visualization
 
    apidoc/plot/plot_image
