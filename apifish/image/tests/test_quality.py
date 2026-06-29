@@ -7,7 +7,7 @@ Unitary tests for apifish.stack.quality module.
 import pytest
 
 import numpy as np
-import apifish.stack as stack
+import apifish.image.quality as stack
 
 
 x_out_focus = np.array(

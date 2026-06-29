@@ -11,7 +11,7 @@ import tempfile
 
 import numpy as np
 import pandas as pd
-import apifish.stack as stack
+import apifish.image.io as stack
 
 from numpy.testing import assert_array_equal
 

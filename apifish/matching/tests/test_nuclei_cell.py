@@ -8,7 +8,7 @@ import pytest
 
 import numpy as np
 
-import apifish.multistack as multistack
+import apifish.matching.nuclei_cell as multistack
 
 from numpy.testing import assert_array_equal
 
