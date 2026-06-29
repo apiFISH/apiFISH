@@ -1,4 +1,4 @@
-# api-FISH
+# apiFISH (based on Big-FISH)
 
 [![codecov](https://codecov.io/gh/apiFISH/apiFISH/branch/development/graph/badge.svg?token=TSFJPBCANN)](https://codecov.io/gh/apiFISH/apiFISH)
 ![build](https://github.com/apiFISH/apiFISH/actions/workflows/tests.yml/badge.svg?branch=development)
