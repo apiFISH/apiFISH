@@ -8,7 +8,7 @@ import os
 import pytest
 import tempfile
 
-import apifish.multistack as multistack
+import apifish.formatting.recipe_manager as multistack
 
 
 # ### Test recipes ###

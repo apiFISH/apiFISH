@@ -6,7 +6,7 @@ Class and functions to segment nucleus.
 
 import numpy as np
 from skimage.morphology import reconstruction
-from skimage.morphology.selem import disk
+from skimage.morphology import disk
 
 from apifish.filter.image import dilation_filter
 from apifish.formatting import utils

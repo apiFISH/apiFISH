@@ -7,7 +7,8 @@ Unitary tests for apifish.stack.filter module.
 import pytest
 
 import numpy as np
-import apifish.stack as stack
+import apifish.filter.image as stack
+import apifish.image.preprocess as preprocess
 
 from apifish.filter.image import _define_kernel
 
@@ -229,7 +230,7 @@ def test_minimum_filter():
 
 def test_log_filter():
     # float64
-    y_float64 = stack.cast_img_float64(y)
+    y_float64 = preprocess.cast_img_float64(y)
     filtered_y_float64 = stack.log_filter(y_float64, 2)
     expected_y_float64 = np.array(
         [
@@ -245,29 +246,29 @@ def test_log_filter():
     assert filtered_y_float64.dtype == np.float64
 
     # float32
-    y_float32 = stack.cast_img_float32(y)
+    y_float32 = preprocess.cast_img_float32(y)
     filtered_y = stack.log_filter(y_float32, 2)
-    expected_y = stack.cast_img_float32(expected_y_float64)
+    expected_y = preprocess.cast_img_float32(expected_y_float64)
     assert_allclose(filtered_y, expected_y, rtol=1e-6)
     assert filtered_y.dtype == np.float32
 
     # uint8
     filtered_y = stack.log_filter(y, 2)
-    expected_y = stack.cast_img_uint8(expected_y_float64)
+    expected_y = preprocess.cast_img_uint8(expected_y_float64)
     assert_array_equal(filtered_y, expected_y)
     assert filtered_y.dtype == np.uint8
 
     # uint16
-    y_uint16 = stack.cast_img_uint16(y)
+    y_uint16 = preprocess.cast_img_uint16(y)
     filtered_y = stack.log_filter(y_uint16, 2)
-    expected_y = stack.cast_img_uint16(expected_y_float64)
+    expected_y = preprocess.cast_img_uint16(expected_y_float64)
     assert_array_equal(filtered_y, expected_y)
     assert filtered_y.dtype == np.uint16
 
 
 def test_gaussian_filter():
     # float64
-    y_float64 = stack.cast_img_float64(y)
+    y_float64 = preprocess.cast_img_float64(y)
     filtered_y_float64 = stack.gaussian_filter(y_float64, 2)
     expected_y_float64 = np.array(
         [
@@ -283,9 +284,9 @@ def test_gaussian_filter():
     assert filtered_y_float64.dtype == np.float64
 
     # float32
-    y_float32 = stack.cast_img_float32(y)
+    y_float32 = preprocess.cast_img_float32(y)
     filtered_y = stack.gaussian_filter(y_float32, 2)
-    expected_y = stack.cast_img_float32(expected_y_float64)
+    expected_y = preprocess.cast_img_float32(expected_y_float64)
     assert_allclose(filtered_y, expected_y, rtol=1e-6)
     assert filtered_y.dtype == np.float32
 
@@ -293,16 +294,16 @@ def test_gaussian_filter():
     with pytest.raises(ValueError):
         stack.gaussian_filter(y, 2, allow_negative=True)
     filtered_y = stack.gaussian_filter(y, 2)
-    expected_y = stack.cast_img_uint8(expected_y_float64)
+    expected_y = preprocess.cast_img_uint8(expected_y_float64)
     assert_array_equal(filtered_y, expected_y)
     assert filtered_y.dtype == np.uint8
 
     # uint16
-    y_uint16 = stack.cast_img_uint16(y)
+    y_uint16 = preprocess.cast_img_uint16(y)
     with pytest.raises(ValueError):
         stack.gaussian_filter(y_uint16, 2, allow_negative=True)
     filtered_y = stack.gaussian_filter(y_uint16, 2)
-    expected_y = stack.cast_img_uint16(expected_y_float64)
+    expected_y = preprocess.cast_img_uint16(expected_y_float64)
     assert_array_equal(filtered_y, expected_y)
     assert filtered_y.dtype == np.uint16
 
@@ -334,7 +335,7 @@ def test_background_removal_mean():
 
 def test_background_removal_gaussian():
     # float64
-    y_float64 = stack.cast_img_float64(y)
+    y_float64 = preprocess.cast_img_float64(y)
     filtered_y_float64 = stack.remove_background_gaussian(y_float64, 2)
     expected_y_float64 = np.array(
         [
@@ -350,9 +351,9 @@ def test_background_removal_gaussian():
     assert filtered_y_float64.dtype == np.float64
 
     # float32
-    y_float32 = stack.cast_img_float32(y)
+    y_float32 = preprocess.cast_img_float32(y)
     filtered_y = stack.remove_background_gaussian(y_float32, 2)
-    expected_y = stack.cast_img_float32(expected_y_float64)
+    expected_y = preprocess.cast_img_float32(expected_y_float64)
     assert_allclose(filtered_y, expected_y, rtol=1e-6)
     assert filtered_y.dtype == np.float32
 
@@ -360,16 +361,16 @@ def test_background_removal_gaussian():
     with pytest.raises(ValueError):
         stack.gaussian_filter(y, 2, allow_negative=True)
     filtered_y = stack.remove_background_gaussian(y, 2)
-    expected_y = stack.cast_img_uint8(expected_y_float64)
+    expected_y = preprocess.cast_img_uint8(expected_y_float64)
     assert_array_equal(filtered_y, expected_y)
     assert filtered_y.dtype == np.uint8
 
     # uint16
-    y_uint16 = stack.cast_img_uint16(y)
+    y_uint16 = preprocess.cast_img_uint16(y)
     with pytest.raises(ValueError):
         stack.gaussian_filter(y_uint16, 2, allow_negative=True)
     filtered_y = stack.remove_background_gaussian(y_uint16, 2)
-    expected_y = stack.cast_img_uint16(expected_y_float64)
+    expected_y = preprocess.cast_img_uint16(expected_y_float64)
     assert_array_equal(filtered_y, expected_y)
     assert filtered_y.dtype == np.uint16
 

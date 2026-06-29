@@ -7,7 +7,6 @@ import scipy.optimize as spo
 from scipy.stats import sigmaclip
 from skimage import filters
 from skimage.util.shape import view_as_blocks
-from tqdm import trange
 
 from .quality import compute_focus
 from ..formatting.utils import check_array, check_parameter
@@ -436,7 +435,7 @@ def calculate_focus_per_block(data, block_size_xy=128):
     focal_plane_matrix = np.zeros(block.shape[0:2])
     fwhm = {}
 
-    for i in trange(block.shape[0]):
+    for i in range(block.shape[0]):
         for j in range(block.shape[1]):
             focal_plane_matrix[i, j], fwhm[i, j] = find_focal_plane(block[i, j])
 
