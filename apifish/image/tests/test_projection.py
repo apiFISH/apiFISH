@@ -7,7 +7,8 @@ Unitary tests for apifish.stack.projection module.
 import pytest
 
 import numpy as np
-import apifish.stack as stack
+import apifish.image.projection as stack
+import apifish.image.quality as quality
 
 from apifish.image.projection import _one_hot_3d
 
@@ -235,7 +236,7 @@ def test_one_hot_3d(dtype):
 
 
 def test_get_in_focus_indices():
-    focus = stack.compute_focus(x_3d_out_focus, neighborhood_size=31)
+    focus = quality.compute_focus(x_3d_out_focus, neighborhood_size=31)
 
     # number of slices to keep
     indices_to_keep = stack.get_in_focus_indices(focus, proportion=3)
@@ -273,7 +274,7 @@ def test_get_in_focus_indices():
 def test_in_focus_selection(dtype):
     x = x_3d_out_focus.astype(dtype)
     expected_y = x_3d.astype(dtype)
-    focus = stack.compute_focus(x_3d_out_focus, neighborhood_size=31)
+    focus = quality.compute_focus(x_3d_out_focus, neighborhood_size=31)
     y = stack.in_focus_selection(x, focus, proportion=3)
     assert_array_equal(y, expected_y)
     assert y.dtype == dtype

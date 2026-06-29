@@ -6,7 +6,7 @@ Unitary tests for apifish.image.utils module.
 
 import pytest
 
-import apifish.stack as stack
+import apifish.formatting.utils as stack
 
 import numpy as np
 import pandas as pd

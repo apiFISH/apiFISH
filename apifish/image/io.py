@@ -10,17 +10,23 @@ import warnings
 
 import numpy as np
 import pandas as pd
+import tifffile
 
 from skimage import io
 from ..formatting.utils import check_array
 from ..formatting.utils import check_parameter
 
-from astropy.table import Table
-
 # TODO add general read function with mime types
 # TODO saving data in csv does not preserve dtypes
 
 # ### Read ###
+
+
+def _get_astropy_table():
+    """Import astropy Table only for ECSV helpers."""
+    from astropy.table import Table
+
+    return Table
 
 
 def read_image(path, sanity_check=False):
@@ -44,7 +50,11 @@ def read_image(path, sanity_check=False):
     check_parameter(path=str, sanity_check=bool)
 
     # read image
-    image = io.imread(path)
+    extension = path.split(".")[-1]
+    if extension in ["tif", "tiff"]:
+        image = tifffile.imread(path)
+    else:
+        image = io.imread(path)
 
     # check the output image
     if sanity_check:
@@ -214,6 +224,7 @@ def read_table_from_ecsv(path):
     )
 
     # read ecsv file
+    Table = _get_astropy_table()
     table = Table.read(path, format="ascii.ecsv")
 
     return table
@@ -407,9 +418,20 @@ def save_image(image, path, extension="tif"):
         )
 
     # save image without warnings
+    image_to_save = image
+    if (
+        extension in ["png", "jpg", "jpeg"]
+        and len(image.shape) == 2
+        and image.dtype != bool
+    ):
+        image_to_save = image.astype(np.uint8)
+
     with warnings.catch_warnings():
         warnings.filterwarnings(action="ignore", category=UserWarning)
-        io.imsave(path, image)
+        if extension in ["tif", "tiff"]:
+            tifffile.imwrite(path, image_to_save)
+        else:
+            io.imsave(path, image_to_save)
 
 
 def save_array(array, path):
@@ -530,6 +552,7 @@ def save_table_to_ecsv(data, path):
 
     """
     # check parameters
+    Table = _get_astropy_table()
     check_parameter(
         data=(Table),
         path=str,

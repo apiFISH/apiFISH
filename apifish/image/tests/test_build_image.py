@@ -10,8 +10,8 @@ import tempfile
 
 import numpy as np
 
-import apifish.stack as stack
-import apifish.multistack as multistack
+import apifish.image.io as stack
+import apifish.image.build_image as multistack
 
 from numpy.testing import assert_array_equal
 
