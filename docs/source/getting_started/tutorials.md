@@ -23,10 +23,6 @@
             :text: Jupyter Notebook
             :classes: btn-block btn-info stretched-link text-white
 
-    ---
-    .. image:: ../_static/read_and_write.png
-       :height: 200
-
     ^^^^^^^^^^
 
     First steps with images
