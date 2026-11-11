@@ -27,12 +27,14 @@ autodoc_mock_imports = [
     "numba",
     "pylab",
     "skimage",
+    "pandas",
+    "mrc",
 ]
 
 project = "apiFISH"
 copyright = "2024, Arthur Imbert, Marcelo Nollmann, Xavier Devos"
 author = "Arthur Imbert, Marcelo Nollmann, Xavier Devos"
-release = "0.7.0"
+release = "0.8.0"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -63,7 +65,6 @@ html_theme_options = {
     "use_repository_button": True,
     "use_edit_page_button": False,
     "path_to_docs": "docs",
-    "logo_only": True,
 }
 
 html_logo = "_static/logo_apiFISH.png"

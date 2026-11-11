@@ -1,30 +1,57 @@
-#!/bin/bash
 
-echo ">>> Initialising Conda..."
-source ~/miniconda3/etc/profile.d/conda.sh
 
-echo ">>> Creating fresh environment..."
-conda create -n test_build_doc python=3.9 --yes
-conda activate test_build_doc
+#!/usr/bin/env bash
+set -euo pipefail
 
-echo ">>> Installing pandoc (simulating RTD docker image)..."
-conda install -c conda-forge pandoc -y
+# Build apiFISH documentation using uv.
+# Run from anywhere: ./build_doc.sh
 
-echo ">>> Installing the package without dependency..."
-pip install --no-deps .
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$ROOT_DIR"
 
-echo ">>> Installing doc dependencies..."
-pip install -r docs/requirements.txt
+VENV_DIR="$ROOT_DIR/.venv-docs"
+PYTHON_VERSION="3.11"
+OUTPUT_DIR="$ROOT_DIR/docs/build/html"
 
-echo ">>> Cleaning previous build output..."
-rm -r docs/build/html
+if ! command -v uv >/dev/null 2>&1; then
+    echo "Error: uv is not installed."
+    echo "See https://docs.astral.sh/uv/"
+    exit 1
+fi
 
-echo ">>> Building documentation with Sphinx..."
-sphinx-build -b html docs/source docs/build/html
+echo ">>> Preparing Python environment..."
 
-echo ">>> Opening documentation in browser..."
-firefox docs/build/html/index.html
+if [[ ! -x "$VENV_DIR/bin/python" ]]; then
+    uv venv --python "$PYTHON_VERSION" "$VENV_DIR"
+fi
 
-echo ">>> Clean environment..."
-conda deactivate
-conda env remove --name test_build_doc
+echo ">>> Installing documentation dependencies..."
+
+uv pip install --python "$VENV_DIR/bin/python" \
+    -r docs/requirements.txt
+
+echo ">>> Installing apiFISH without runtime dependencies..."
+
+uv pip install --python "$VENV_DIR/bin/python" \
+    --no-deps -e .
+
+echo ">>> Building documentation..."
+
+"$VENV_DIR/bin/python" -m sphinx \
+    -b html \
+    docs/source \
+    "$OUTPUT_DIR"
+
+echo ""
+echo ">>> Documentation built successfully!"
+echo ">>> Output: $OUTPUT_DIR/index.html"
+echo ""
+
+# Open documentation only when explicitly requested.
+if [[ "${1:-}" == "--open" ]]; then
+    if command -v xdg-open >/dev/null 2>&1; then
+        xdg-open "$OUTPUT_DIR/index.html"
+    else
+        echo "Open $OUTPUT_DIR/index.html in your browser."
+    fi
+fi
